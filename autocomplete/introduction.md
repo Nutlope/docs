@@ -1,6 +1,6 @@
 # Introduction
 
-Autocomplete specs add support for a CLI tool to Fig's autocomplete. They serve two purposes:
+Use Fig's autocomplete specs schema to define VSCode like autocomplete for any CLI tool. Autocomplete specs serve two purposes:
 
 **1. Define a CLI tool in a structured tree-like representation.**
   - Mapping a user's Terminal input to this defined tree structure gives us the context on the user's input. This lets us accurately generate suggestions.
