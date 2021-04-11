@@ -42,7 +42,7 @@ Under the `checkout` subcommand, we added an empty args object. Including this a
 
 `-b` is an option of the `checkout` subcommand, so we'll nest the flag under the subcommand's `options` array. Options take a name and description, both of which will show in the Fig UI.
 
-Nested under the `-b` option is another argument named branch, telling Fig that the option accepts an argument. The Fig parser won't function properly if args aren't included when there should be user input, so don't forget to at least insert an empty `args: {}` propety when there should be an argument. Here, since both `args` and `options` are available under `checkout`, Fig expects either an option or an argument.
+Nested under the `-b` option is another argument named branch. The Fig parser won't function properly if args aren't included when there should be user input, so don't forget to at least insert an empty `args: {}` property when there should be an argument.
 
 ```js
 var completionSpec = {
@@ -124,11 +124,11 @@ When a user runs `git checkout`, they typically want to move to another local br
 
 But, we can generate a list of suggestions that show the user all their local git branches using [Generators](./generators).
 
-Our generator runs a script in the user's terminal, and Fig will capture the output of that script. In our example, we want to run `git branch --no-color` to have git display the list of branches. 
+A generator runs a script in the user's terminal, and Fig will capture the output of that script. We want to run `git branch --no-color` to have git display the list of branches. 
 
 ![](/docAssets/autocomplete/getting-started/generatorScript.png)
 
-The `postProcess` function then captures the output from the terminal as a string, and within the function you can write logic to convert the output string into suggestions. In our function, we want to split our list of branches by the newline character, and convert each line containing a branch into a [Suggestion Object](#Suggestion Object) containing a `name` and `description`. Note that `postProcess` should return an array of generated suggestion objects.
+The `postProcess` function captures the output from the terminal as a string, and within the function you can write logic to convert the output string into suggestions. We want to split our list of branches by the newline character, and convert each line containing a branch into a [Suggestion Object](#Suggestion Object) containing a `name` and `description`. Note that `postProcess` should return an array of generated suggestion objects.
 
 ```js
 var branches = {
@@ -205,7 +205,7 @@ For more details about writing generators, see [Generators](./generators).
 
 Fig has a few commonly used generators built-in as templates.
 
-Let's improve our `git` completion spec by adding support for `git add`. When running the command, users can add individual files and folders to stage. We can have Fig show suggestions for what files and folders to add using the "filepaths" template.
+Let's improve our `git` completion spec by adding support for `git add`. When running the command, users can select individual files and folders. We can have Fig show suggestions for possible files and folders to add using the "filepaths" template.
 
 We include the `add` subcommand under `checkout`, which accepts one argument. Entering the "filepaths" template under that argument automatically suggests files from the user's working directory when `git add` is typed into the terminal.
 

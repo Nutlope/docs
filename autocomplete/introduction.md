@@ -1,4 +1,4 @@
-# Getting Started with Autocomplete Specs
+# Introduction
 
 Autocomplete specs add support for a CLI tool to Fig's autocomplete. They serve two purposes:
 
@@ -22,6 +22,6 @@ var completionSpec = { // Command Object
 }
 ```
 
-- To start building your own spec, see [Building Your First Autocomplete Spec](/docs/autocomplete/building-a-spec).
-- Looking to dive deeper into everything you can do with specs? Check out the [API Reference](/docs/autocomplete/api).
+- To learn how to build your own spec, see [Building Your First Autocomplete Spec](/docs/autocomplete/guides/building-first-spec).
+- Looking to dive deeper into spec format? Check out the [API Reference](/docs/autocomplete/api).
 - Already built a spec and need to test it out? See [Testing Autocomplete](/docs/autocomplete/testing-autocomplete).

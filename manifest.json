@@ -22,36 +22,53 @@
                     "path": "autocomplete",
                     "routes": [
                         {
-                            "title": "Getting Started with Autocomplete",
-                            "path": "autocomplete/getting-started.md"
+                            "title": "Introduction",
+                            "path": "autocomplete/introduction.md"
                         },
                         {
-                            "title": "Building Your First Autocomplete Spec",
-                            "path": "autocomplete/building-a-spec.md"
+                            "title": "Getting Started Guides",
+                            "path": "guides",
+                            "routes": [
+                                {
+                                    "title": "Building Your First Autocomplete Spec",
+                                    "path": "autocomplete/guides/building-first-spec.md"
+                                },
+                                {
+                                    "title": "Contributing to Public Specs",
+                                    "path": "autocomplete/guides/contributing-to-public-specs.md"
+                                },
+                                {
+                                    "title": "Building Autocomplete for Internal CLIs",
+                                    "path": "autocomplete/guides/building-internal-clis.md"
+                                },
+                                {
+                                    "title": "Building Autocomplete for Internal Scripts",
+                                    "path": "autocomplete/guides/autocomplete-for-internal-scripts.md"
+                                }
+
+                            ]
                         },
                         {
                             "title": "API",
                             "path": "autocomplete/api.md"
                         },
                         {
-                            "title": "Generators",
-                            "path": "autocomplete/generators.md"
-                        },
-                        {
-                            "title": "Building a Spec Quickly",
-                            "path": "autocomplete/building-a-spec-quickly.md"
-                        },
-                        {
-                            "title": "Executing Shell Commands",
-                            "path": "autocomplete/executing-shell-commands.md"
-                        },
-                        {
-                            "title": "Autocomplete for Teams",
-                            "path": "autocomplete/autocomplete-for-teams.md"
-                        },
-                        {
-                            "title": "Icon API",
-                            "path": "autocomplete/icon-api.md"
+                            "title": "Reference",
+                            "path": "reference",
+                            "routes": [
+                                {
+                                    "title": "Generators",
+                                    "path": "autocomplete/reference/generators.md"
+                                },
+                                {
+                                    "title": "Executing Shell Commands",
+                                    "path": "autocomplete/reference/executing-shell-commands.md"
+                                },
+                                {
+                                    "title": "Icon API",
+                                    "path": "autocomplete/reference/icon-api.md"
+                                }
+                            ]
                         },
                         {
                             "title": "Testing Autocomplete",
@@ -63,6 +80,10 @@
                     "title": "Support",
                     "path": "support",
                     "routes": [
+                        {
+                            "title": "Settings",
+                            "path": "support/settings.md"
+                        },
                         {
                             "title": "Errors",
                             "path": "support/errors.md"
