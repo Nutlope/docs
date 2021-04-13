@@ -26,4 +26,4 @@ jobs:
           
           git add .
           git commit -m "added updates to docs"
-          git remote set-url --push origin https://cstrnt:$UPDATE_SITE_TOKEN@github.com/withfig/public-site-nextjs
+          git push origin main
