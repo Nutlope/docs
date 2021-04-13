@@ -1,0 +1,26 @@
+name: Update Website
+
+on: 
+  push:
+    branches:
+      - "main"
+
+jobs:
+  update_page:
+    runs-on: "ubuntu-latest"
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: update submodules
+        run: |
+          git clone https://github.com/withfig/public-site-nextjs public-site-nextjs
+          cd public-site-nextjs
+        
+          git submodule update --init --recursive
+
+          git submodule foreach git pull origin main
+          
+          git add .
+          git commit -m "added updates to docs"
+          git remote set-url --push origin https://withfig:$GITHUB_TOKEN@github.com/withfig/public-site-nextjs
