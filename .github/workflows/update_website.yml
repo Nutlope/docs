@@ -1,0 +1,29 @@
+name: Update Website
+
+on: 
+  push:
+    branches:
+      - "main"
+
+jobs:
+  update_page:
+    runs-on: "ubuntu-latest"
+    env:
+      UPDATE_SITE_TOKEN: ${{ secrets.UPDATE_SITE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: update submodules
+        run: |
+          git clone https://cstrnt:$UPDATE_SITE_TOKEN@github.com/withfig/public-site-nextjs public-site-nextjs
+          cd public-site-nextjs
+        
+          git submodule update --init --recursive
+
+          git submodule foreach git pull origin main
+
+          git config user.email "hello@withfig.com"
+          git config user.name "Figbot"
+          
+          git add .
+          git commit -m "added updates to docs"
+          git push origin main
