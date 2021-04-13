@@ -41,7 +41,7 @@ The full list as of v1.0.40 is included below:
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/alert.png"> `alert`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/android.png"> `android`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/apple.png"> `apple`
-<img width="16px" height="16px" src="/docAssets/autocomplete/icons/astrix.png"> `astrix`
+<img width="16px" height="16px" src="/docAssets/autocomplete/icons/astrix.png"> `astrisk`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/aws.png"> `aws`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/azure.png"> `azure`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/box.png"> `box`
@@ -76,9 +76,7 @@ If we are missing an icon, please [open an issue](https://github.com/withfig/fig
 
 ### Adding Badges to Icons
 
-You can also add **badges** to icons. Badges are used to provide additional information or to highlight a specific suggestion. 
-
-For instance, the `git` completion spec uses badges to indicate whether files have been renamed, modified or deleted when staging.
+You can also add **badges** to icons. Badges are used to provide additional information or to highlight a specific suggestion. For instance, the `git` completion spec uses badges to indicate whether files have been renamed, modified or deleted when staging.
 
 You can add a badge to an icon by including `color` or `badge` (or both) as query parameters. 
 
