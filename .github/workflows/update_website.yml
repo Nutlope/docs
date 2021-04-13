@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: update submodules
         run: |
-          git clone https://withfig:$GITHUB_TOKEN@github.com/withfig/public-site-nextjs public-site-nextjs
+          git clone https://cstrnt:$GITHUB_TOKEN@github.com/withfig/public-site-nextjs public-site-nextjs
           cd public-site-nextjs
         
           git submodule update --init --recursive
@@ -23,4 +23,4 @@ jobs:
           
           git add .
           git commit -m "added updates to docs"
-          git remote set-url --push origin https://withfig:$GITHUB_TOKEN@github.com/withfig/public-site-nextjs
+          git remote set-url --push origin https://cstrnt:$GITHUB_TOKEN@github.com/withfig/public-site-nextjs
