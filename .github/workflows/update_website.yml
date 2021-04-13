@@ -20,6 +20,9 @@ jobs:
           git submodule update --init --recursive
 
           git submodule foreach git pull origin main
+
+          git config user.email "hello@withfig.com"
+          git config user.name "Figbot"
           
           git add .
           git commit -m "added updates to docs"
