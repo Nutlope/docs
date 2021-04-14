@@ -43,13 +43,13 @@ ioreg -l -w 0 |  tr ',' '\n' 2&> /dev/null | grep kCGSSessionSecureInputPID | cu
 
 ## Secure Input is enabled by Loginwindow Console 
 
-There appears to be a bug with MacOS, where sometimes the login window doesn't terminate (and disable Secure Input) once the user has logged in. 
+There appears to be a bug with MacOS, where sometimes the login window doesn't terminate (and disable Secure Input) once the user has logged in. ([Source](https://merikan.com/2019/05/troubleshooting-hyperswitch/))
 
 **To fix this, you need to return to the lock screen and then log back in.**
 
 <u>Tip:</u> You can use the `⌃ Control`  `⌘ Command`  `Q` hotkey to quickly go to the login screen.
 
-Credit goes to [merikan](https://merikan.com/2019/05/troubleshooting-hyperswitch/) for discovering this workaround.
+> If logging in does not resolve the issue, try restarting your machine. 
 
 ## Another app is responsible
 
