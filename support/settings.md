@@ -35,9 +35,9 @@ All Fig settings are included below.
 > When `light`, Fig will run in light mode. When `dark`, Fig will run in dark mode.
 
 
-**autocomplete.sortMethod** `[string]`
+**autocomplete.sortMethod** `[recency | alphabetical]`
 
-> `recency`: [Default] Sort by most recently used. <br></br> `alphabetical`: Sort by alphabetical
+> Specify how Fig should sort suggestions<br></br> `recency`: [Default] Sort by most recently used. <br></br> `alphabetical`: Sort by alphabetical
 
 **autocomplete.devCompletionsFolder** `[directory]` 
 
