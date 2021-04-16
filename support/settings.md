@@ -30,9 +30,14 @@ All Fig settings are included below.
 
 > When `true`, Fig will not cache completion specs and will load specs from the directory specified in `autocomplete.devCompletionsFolder` rather than `~/.fig/autocomplete`.
 
-**autocomplete.theme** `[string]` 
+**autocomplete.theme** `[light | dark]` 
 
 > When `light`, Fig will run in light mode. When `dark`, Fig will run in dark mode.
+
+
+**autocomplete.sortMethod** `[recency | alphabetical]`
+
+> Specify how Fig should sort suggestions<br></br> `recency`: [Default] Sort by most recently used. <br></br> `alphabetical`: Sort by alphabetical
 
 **autocomplete.devCompletionsFolder** `[directory]` 
 
@@ -53,6 +58,10 @@ All Fig settings are included below.
 **autocomplete.immediatelyRunGitAliases** `[bool]`
 
 > A flag that determines whether Fig will present suggestions to immediately run `git` aliases.
+
+**autocomplete.disableForCommands** `[array]`
+
+> Pass in a JSON array of commands Fig should not autocomplete on.
 
 **autocomplete.enter** `[insert | ignore]`
 
@@ -91,6 +100,10 @@ All Fig settings are included below.
 **app.launchOnStartup** `[bool]` 
 
 > A flag that determins whether the Fig app is added to Login Items. If `true`, Fig will launch automatically whenever you restart your computer.
+
+**app.hideMenubarIcon** `[bool]`
+
+> Hide Fig's icon ◧ in the Mac status bar
 
 **app.disableTelemetry** `[bool]` 
 
