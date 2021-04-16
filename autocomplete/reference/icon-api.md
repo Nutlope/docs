@@ -41,7 +41,7 @@ The full list as of v1.0.40 is included below:
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/alert.png"> `alert`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/android.png"> `android`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/apple.png"> `apple`
-<img width="16px" height="16px" src="/docAssets/autocomplete/icons/astrix.png"> `astrisk`
+<img width="16px" height="16px" src="/docAssets/autocomplete/icons/astrix.png"> `asterisk`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/aws.png"> `aws`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/azure.png"> `azure`
 <img width="16px" height="16px" src="/docAssets/autocomplete/icons/box.png"> `box`
