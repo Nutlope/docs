@@ -22,6 +22,7 @@ Fig takes the user's input, maps it to your completion spec, then uses the compl
 
 You will almost never make Suggestion Objects. Instead, you will make a completion spec of [Subcommand](#subcommand-object), [Option](#option-object), and [Arg Objects](#arg-object). Fig will then use these objects to generate Suggestion Objects.
 
+<!-- START-ID: BaseSuggestion -->
 | Property Name | Type                       | Required | Default                                                      | Description                                                  |
 | ------------- | -------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | name          | string or array of strings | ☑        |                                                              | The text that’s rendered in each row of the dropdown.<br /><br />**A quick note on the `name` prop**<br />Fig uses the `name` prop for parsing purposes. It is important the `name` prop exactly matches the CLI tool. If you want to customise it what is says in the dropdown, please use `displayName` |
@@ -32,13 +33,15 @@ You will almost never make Suggestion Objects. Instead, you will make a completi
 | icon          | string                     | ☐        | auto-generated based on type prop. If type doesn't exist, will be `?` | The icon that is rendered is based on the type, unless overwritten. Icon can be a 1 character string (e.g. `A` or `😊`) , a URL, or [Fig's icon protocol](/docs/autocomplete/icon-api) (`fig://`) which will get mac system icons |
 | isDangerous   | bool                       | ☐        | false                                                        | Specifies whether the suggestion is "dangerous". If so, Fig will not enable its insert and run functionality whereby selecting a suggestion runs a command. This will make it harder for a user to accidentally run a dangerous command. This is used in specs like `rm` and `trash` |
 
-
+<!-- END-ID: BaseSuggestion -->
 
 ## Subcommand Object
 
 Used to define subcommands under a main command. For example, within `git commit`, `commit` is a subcommand of `git`.
 
 Subcommand Objects are recursive by nature. 
+
+<!-- START-ID: Subcommand -->
 
 | Property Name         | Type                               | Required | Default             | Description                                                  |
 | --------------------- | ---------------------------------- | -------- | ------------------- | ------------------------------------------------------------ |
@@ -54,6 +57,7 @@ Subcommand Objects are recursive by nature.
 | additionalSuggestions | array of Suggestion objects        | ☐        |                     | Refer to [Suggestion Object](#suggestion-object) for the suggestion schema. Use additionalSuggestions to make custom suggestions. Note, you should only use this for special cases. Most likely, what you are trying to accomplish should be done with the `args` prop |
 | loadSpec              | string                             | ☐        |                     | Allows Fig to refer to another completion spec in the `~/.fig/autocomplete` folder. Specify the spec name without js. e.g. `aws-s3` refer to the `~/.fig/autocomplete/aws-s3` spec. <br /><br />When is this used? The `aws` spec is so large that it is slow to load. It needs to be broken up into a separate spec for each subcommand.<br /><br />If your CLI tool takes another CLI command (e.g. `time` , `builtin`... ) or a script (e.g. `python`, `node`) and you would like Fig to continue to provide completions for this script, see `isCommand` and `isScript` in [Arg Object](#arg-object) |
 
+<!-- END-ID: Subcommand -->
 
 
 
@@ -64,6 +68,8 @@ Options add additional information to a subcommand. They usually start with `-` 
 
 * Some options are boolean: they are there or not. These are called flags. e.g. `git --verion` . 
 * Some options take an argument e.g. `git commit -m <message>`
+
+<!-- START-ID: Option -->
 
 | Property Name         | Type                               | Required | Default | Description                                                  |
 | --------------------- | ---------------------------------- | -------- | ------- | ------------------------------------------------------------ |
@@ -76,6 +82,7 @@ Options add additional information to a subcommand. They usually start with `-` 
 | args                  | Arg object or array of Arg objects | ☐        |         | Refer to [Arg Object](#arg-object) for the Arg schema. <br /><br />**Important**: If an option takes an argument, please at least include an empty Arg Object (e.g. `{}`). If you don't, Fig will assume the option does not take an argument. This means Fig will present the wrong suggestions. |
 | additionalSuggestions | array of Suggestion objects        | ☐        |         | Refer to [Suggestion Object](#suggestion-object) for the suggestion schema. Use additionalSuggestions to make custom suggestions. In most cases, what you are trying to accomplish should be done with the `args` prop |
 
+<!-- END-ID: Option -->
 
 
 ## Arg Object
@@ -96,7 +103,7 @@ Ideally your arg object includes a name, description, and generator, however, if
 ```
 
 
-
+<!-- START-ID: Arg -->
 | Property Name | Type                                            | Required | Default                                                      | Description                                                  |
 | ------------- | ----------------------------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | name          | string                                          | ☐        |                                                              | Refer to `name` under [Suggestion Object](#suggestion-object) |
@@ -113,6 +120,8 @@ Ideally your arg object includes a name, description, and generator, however, if
 | isCommand     | boolean                                         | ☐        | false                                                        | Specifies that the argument is an entirely new command which Fig should complete on. e.g. `time` and `builtin` have only one argument and this argument has the isCommand property |
 | isScript      | boolean                                         | ☐        | false                                                        | Specifies that the argument is a script which Fig may complete on. e.g. `python`  takes one argument which is a `.py` file. It is possible for Fig to offer for completions on this .py file. See [Fig for Teams](/docs/autocomplete/autocomplete-for-teams) |
 
+<!-- END-ID: Arg -->
+
 **Note**: To re-iterate again, an Arg Object can be completely empty (e.g. `{}`). So if a subcommand or option takes an argument, please include it otherwise Fig's parsing will break!
 
 
@@ -123,6 +132,7 @@ Generators are used to programatically generate suggestion objects. For example,
 
 For more details on generators and their properties, see [Generators](/docs/autocomplete/generators).
 
+<!-- START-ID: Generator -->
 | Property Name             | Type                                                         | Required | Description                                                  |
 | ------------------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
 | template                  | string                                                       | ☐        | Must be either "filepaths" or "folders"                      |
@@ -133,6 +143,8 @@ For more details on generators and their properties, see [Generators](/docs/auto
 | custom                    | async function <br />Input: array of strings<br />Output: array of Suggestion objects | ☐        | Custom Functions let you define a function that takes an array of the user's input, run multiple shell commands on the user's machine, and then generate suggestions to display. |
 | trigger                   | string or function<br /><u>function</u><br />Inputs: string, string<br /> Output: boolean | ☐        | Defines a trigger that determines when to regenerate suggestions for this argument by re-running the generators. |
 | filterTerm                | string or function <br /><u>function</u> <br />Input: string <br />Output: string | ☐        | A function to determine what part of the string the user is currently typing we should use to filter our suggestions. |
+
+<!-- END-ID: Generator -->
 
 **Note**: At least one of `template`, `script`, or `custom` is **required**. Only one of these three props is allowed per generator.
 
