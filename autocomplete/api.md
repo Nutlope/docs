@@ -31,6 +31,7 @@ You will almost never make Suggestion Objects. Instead, you will make a completi
 | description | string | ☐ |  |  The text that gets rendered at the bottom of the autocomplete box.  Keep it short and direct! |  |
 | icon | string | ☐ |  |  The icon that is rendered is based on the type, unless overwritten. Icon  can be a 1character string, a URL, or Fig's icon protocol (fig://) which  will get mac system icons.    `A`, `😊`  `https://www.herokucdn.com/favicon.ico`  `fig://icon?type=file` |  |
 | isDangerous | boolean | ☐ |  |  Specifies whether the suggestion is "dangerous". If so, Fig will not enable  its insert and run functionality whereby selecting a suggestion runs a command.  This will make it harder for a user to accidentally run a dangerous command.    This is used in specs like rm and trash. |  |
+| hidden | boolean | ☐ |  |  Specifies whether a suggestion should be hidden from results and only show is there is an exact match.    This is used for things like "-" suggestion in cd or git checkout |  |
 <!-- END-ID: BaseSuggestion -->
 
 ## Subcommand Object
@@ -49,6 +50,7 @@ Subcommand Objects are recursive by nature.
 | args | SingleOrArray<Arg> | ☐ |  |  An array of args or a single arg.    If a subcommand takes an argument, please at least include an empty Arg Object  (e.g. {}). If you don't, Fig will assume the subcommand does not take an argument.  This means Fig will present the wrong suggestions. |  |
 | additionalSuggestions | Suggestion[]  | ☐ |  |  A list of Suggestion to make custom suggestions.    You should only use this for special cases. Most likely, what you are trying to  accomplish should be done with the `args` prop. |  |
 | loadSpec | string | ☐ |  |  Allows Fig to refer to another completion spec in the `~/.fig/autocomplete` folder.  Specify the spec name without `js`.    `aws-s3` refer to the `~/.fig/autocomplete/aws-s3` spec.   When is this used? The aws spec is so large that it is slow to load. It needs to be  brokenup into a separate spec for each subcommand.   If your CLI tool takes another CLI command (e.g. time , builtin... ) or a script  (e.g. python, node) and you would like Fig to continue to provide completions for this  script, see `isCommand` and `isScript` in {@link {https://withfig.com/docs/autocomplete/api#arg-object | Arg}. |  |
+| generateSpec | Function<string[], Promise<Spec>> | ☐ |  |  Dynamically generate a completion spec to be merged in at the same level as the current subcommand. This is useful when a CLI is generated dynamically    Laravel artisan has its own subcommands but also lets you define your own completion spec. |  |
 <!-- END-ID: Subcommand -->
 
 
@@ -127,7 +129,7 @@ For more details on generators and their properties, see [Generators](/docs/auto
 | trigger | string  | ☐ |  |  Defines a trigger that determines when to regenerate suggestions for this argument by  re-running the generators. |  |
 | filterTerm | StringOrFunction<string, string> | ☐ |  |  A function to determine what part of the string the user is currently typing we should  use to filter our suggestions. |  |
 | custom | Function<string[], Promise<Suggestion[]>> | ☐ |  |  Custom Functions let you define a function that takes an array of the user's input, run  multiple shell commands on the user's machine, and then generate suggestions to display. |  |
-| cache | Cache | ☐ |  |  Should we cache the object and if so for how long.    "," or "\n" and Fig will do the work of the `postProcess` prop for you |  |
+| cache | Cache | ☐ |  |  Should we cache the object and if so for how long.    "," or "\n" and Fig will do the work of the `postProcess` prop for you. |  |
 <!-- END-ID: Generator -->
 
 **Note**: At least one of `template`, `script`, or `custom` is **required**. Only one of these three props is allowed per generator.
