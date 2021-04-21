@@ -13,8 +13,8 @@ Fig has defined its own simple standard for building CLI autocomplete. The stand
   - i.e. your description of the `-m` option in `git commit -m` is what will displayed to the user!
 
 
-```js
-var completionSpec = { // Command Object
+```ts
+export const completionSpec: Fig.Spec = { // Command Object
   name: "git",
   description: "the stupid content tracker",
   subcommands: [ ... ], // Array of Command Objects 

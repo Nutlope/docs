@@ -4,7 +4,7 @@
 
 You can add a Fig object to your package.json, which will allow Fig to automatically generate autocomplete suggestions when using your project.
 
-Including the Fig object can serve as a This can be useful when sharing a node-based internal tool with team members who all have Fig installed.
+Including the Fig object can serve as a quick reference guide for your project's CLI commands. This can be useful when sharing a node-based internal tool with team members who all have Fig installed.
 
 ```json
 {
