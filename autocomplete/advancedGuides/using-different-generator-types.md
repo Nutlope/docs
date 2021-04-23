@@ -1,14 +1,16 @@
 # Using Different Generator Types
 
-## Types of Generators
+### Types of Generators
 
-There are 4 types of generators. At the end of the day, they all give you the ability to define what shell command(s) to run. Then given that output, parse it however you'd like to produce Suggestion objects.
+There are 4 types of generators. They all give you the ability to define what shell command(s) to run. Then given that output, parse it however you'd like to produce Suggestion objects.
 
 They types of Generator are listed below in order of customisability.
 
 We would say the vast majority of Generators you make will be using **Templates** and/or **Script as a String**
 
-### 1. Templates
+For reference on each generator type's properties, see the [Generators Reference](/docs/autocomplete/reference/generators)
+
+### Templates
 
 Filepaths or folders are very common arguments for subcommands. e.g.
 
@@ -45,7 +47,7 @@ args: {
 ```
 
 
-### 2. Script as a String
+### Script as a String
 
 If you're suggesting something other than files or folders, we recommend using this. This let's you run a mini-script / command on the user's computer. The script runs in the user's current working directory and in the same shell. It's as if the user typed the command themselves.
 
@@ -71,13 +73,9 @@ var generateBranches = {
 
 The above code runs the `git branch` script and generates a list of suggestion objects by splitting the output by newline characters with the `splitOn` function. Alternatievly, more complex filtering logic can be written in the `postProcess` method, which takes the output of the script as an output, and returns an array of suggestion objects.
 
-### 3. Script as a Function
+### Script as a Function
 
-This is *exactly* the same as **Script as a String**, except you can define what script to run as a **Function**.
-
-Using Script as a Function may be necessary when you want to run scripts dynamically based on parts of the command that the user has entered. For example, Heroku requires 
-
-The function takes a parameter, `context`, which includes an array of strings broken down into components. The strings can then be used as values to pass to the script you'd like to return.
+Using Script as a Function may be necessary when you want to run scripts dynamically based on parts of the command that the user has entered. For example, Heroku requires the function takes a parameter, `context`, which includes an array of strings broken down into components. The strings can then be used as values to pass to the script you'd like to return.
 
 When running `git checkout master`, `context` equals ["git", "checkout", "master"].
 
@@ -108,23 +106,12 @@ args: {
 
 The properties below are exactly the same as **Script as a String** except for the `script` prop. In that case
 
-### 4. Custom Function
+### Custom Function
 
-**Note:** The [Script as a String](#script-as-a-string) or [Script as a Function](#script-as-a-function) generator functions should suit your needs most of the time. Before writing a Custom Function, we suggest writing a simple version of the spec using generators first. If it captures > 60% or 70% of the use cases, worst case, Fig just won't show for the remaining use cases.
-
-If you are going to write a Custom Function, please [email us](mailto:hello@withfig.com), we'd love to help.
-
---- 
-
-Fig's completion spec standard accounts for the vast majority of CLI tools, but some features don't work with the standard spec. Custom Functions inside generators enable you to write more complex logic and generate suggestions based on user input unique to a certain CLI tool.
-
-Custom Functions let you define a function that takes an array of the user's input, run multiple shell commands on the user's machine, and then generate suggestions to display. When using Custom Functions, you will likely have to work pretty closely with [Triggers](#trigger).
-
-#### When to use Custom Functions
-
-**1. An argument can be one of many types, and you want to provide suggestions once you have more context on what type the user is inputting**. 
+1. An argument can be one of many types, and you want to provide suggestions once you have more context on what type the user is inputting.
 
 e.g. `git checkout` supports multiple types of arguments
+
 - `git checkout staging` → branch
 - `git checkout h8ne3x` → commit hash
 - `git checkout HEAD~` → Relative refspec
@@ -133,7 +120,7 @@ e.g. `git checkout` supports multiple types of arguments
 
 You could just use a **script as a string** Generator and only suggest branches by using `git branch`. This would be nice and would work fine. But it would be cool if you could type `HEAD^^` and have Fig tell you which commit description you are referring to. Custom functions let you do this.
 
-**2. An argument takes its own sub-arguments that are not delimited by a space** 
+2. An argument takes its own sub-arguments that are not delimited by a space
 
 e.g. in `npm` you can refer to a package in many ways AND then you can provide sub-arguments like the version, tag, and range, all within the same string.
 
