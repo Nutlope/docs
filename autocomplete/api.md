@@ -4,10 +4,10 @@
 
 The root object is used to define every completion spec. It must be declared as a `var`, not a `const` or `let`. It must also be called `completionSpec`. `completionSpec` is actually a [Subcommand Object](#subcommand-object).
 
-```js
+```ts
 // Must be "var" NOT "let" or "const")
 // Must be "completionSpec" 
-var completionSpec = { // this is a Subcommand Object
+export const completionSpec: Fig.Spec = { // this is a Subcommand Object
   name: "git",
   description: "the stupid content tracker"
 	...

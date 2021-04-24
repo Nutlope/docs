@@ -8,8 +8,8 @@ To start, let's define the `completionSpec` variable, and add a `name` and `desc
 
 Make sure to define your spec exactly as shown, using `var` instead of `const` or `let`. `completionSpec` is case sensitive!
 
-```js
-var completionSpec = {
+```ts
+export const completionSpec: Fig.Spec = {
 	name: "git",
   description: "the stupid content tracker"
 }
@@ -21,8 +21,8 @@ Now that we have our spec defined, let's add autocomplete support for `git check
 
 `checkout` is a subcommand of `git`, so we'll include it under `git`'s subcommands array. The subcommand object takes a name, description, as well as its own options and arguments. For more information on subcommand's properties, see [Subcommand Object](/api#subcommand-object).
 
-```js
-var completionSpec = {
+```ts
+export const completionSpec: Fig.Spec = {
   name: "git",
   description: "the stupid content tracker",
   subcommands: [
@@ -44,8 +44,8 @@ Under the `checkout` subcommand, we added an empty args object. Including this a
 
 Nested under the `-b` option is another argument named branch. The Fig parser won't function properly if args aren't included when there should be user input, so don't forget to at least insert an empty `args: {}` property when there should be an argument.
 
-```js
-var completionSpec = {
+```ts
+export const completionSpec: Fig.Spec = {
   name: "git",
   description: "the stupid content tracker",
   subcommands: [
@@ -69,12 +69,12 @@ var completionSpec = {
 
 #### 4. Including an option to the root object
 
-We now have a spec that supports the primary functionality of `git checkout`. The root object, defined as `var completionSpec`, is actually a command in itself, with the same properties as the [Subcommand Object](/api#subcommand-object).
+We now have a spec that supports the primary functionality of `git checkout`. The root object, defined as `completionSpec`, is actually a command in itself, with the same properties as the [Subcommand Object](/api#subcommand-object).
 
 If we want to add support for `git --version`, the `--version` flag can be added as an option under the root object as follows:
 
-```js
-var completionSpec = {
+```ts
+export const completionSpec: Fig.Spec = {
   name: "git",
   description: "the stupid content tracker",
   subcommands: [
@@ -161,7 +161,7 @@ var branches = {
   }
 }
 
-var completionSpec = {
+export const completionSpec: Fig.Spec = {
   name: "git",
   description: "the stupid content tracker",
   subcommands: [
@@ -222,7 +222,7 @@ var branches = {
   }
 }
 
-var completionSpec = {
+export const completionSpec: Fig.Spec = {
   name: "git",
   description: "the stupid content tracker",
   subcommands: [
