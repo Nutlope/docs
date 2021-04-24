@@ -85,6 +85,11 @@ All Fig settings are included below.
 
 > Set the maximum height of the autocomplete window.
 
+**autocomplete.fuzzySearch** `[bool]`
+
+> Search of suggestions using fuzzy search rather than prefix search. 
+> NOTE: this currently does not support the tab autocomplete underlining that prefix search has
+
 ### Pseudoterminal
 
 **pty.path** `[string]` 
