@@ -44,6 +44,10 @@
                                 {
                                     "title": "Building Autocomplete for Internal Scripts",
                                     "path": "autocomplete/guides/autocomplete-for-internal-scripts.md"
+                                },
+                                {
+                                    "title": "Building Autocomplete for NPM or Yarn Scripts",
+                                    "path": "autocomplete/scripting.md"
                                 }
 
                             ]
