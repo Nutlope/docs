@@ -44,10 +44,6 @@
                                 {
                                     "title": "Building Autocomplete for Internal Scripts",
                                     "path": "autocomplete/guides/autocomplete-for-internal-scripts.md"
-                                },
-                                {
-                                    "title": "Building Autocomplete for NPM or Yarn Scripts",
-                                    "path": "autocomplete/scripting.md"
                                 }
 
                             ]
@@ -61,8 +57,8 @@
                                     "path": "autocomplete/advancedGuides/customizing-priorities.md"
                                 },
                                 {
-                                    "title": "Building Autocomplete for Node Scripts",
-                                    "path": "autocomplete/advancedGuides/autocomplete-for-node-scripts.md"
+                                    "title": "Building Autocomplete for NPM & Yarn Scripts",
+                                    "path": "autocomplete/advancedGuides/autocomplete-for-npm-scripts.md"
                                 },
                                 {
                                     "title": "Building Visual Shortcuts with Fig",
@@ -76,12 +72,12 @@
                             ]
                         },
                         {
-                            "title": "API",
-                            "path": "autocomplete/api.md"
+                            "title": "Video Tutorials",
+                            "path": "autocomplete/videos.md"
                         },
                         {
-                            "title": "Autocomplete for Node Scripts",
-                            "path": "autocomplete/scripting.md"
+                            "title": "API",
+                            "path": "autocomplete/api.md"
                         },
                         {
                             "title": "Reference",
