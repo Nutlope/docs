@@ -37,7 +37,7 @@ Including the Fig object can serve as a quick reference guide for your project's
 }
 ```
 
-The above Fig object in the `package.json` generates these autocomplete suggestions when typing `npm run`.
+The above Fig object in the `package.json` generates these autocomplete suggestions when typing `npm run`. Suggestions will only show up if a script with the same exact name is found in the `"scripts"` object of your `package.json`.
 
 ![](/docAssets/autocomplete/scripting/packagejson.png)
 

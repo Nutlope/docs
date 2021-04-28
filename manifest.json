@@ -53,8 +53,35 @@
                             ]
                         },
                         {
+                            "title": "Advanced Guides",
+                            "path": "advancedGuides",
+                            "routes": [
+                                {
+                                    "title": "Customizing Suggestion Priorities",
+                                    "path": "autocomplete/advancedGuides/customizing-priorities.md"
+                                },
+                                {
+                                    "title": "Building Autocomplete for Node Scripts",
+                                    "path": "autocomplete/advancedGuides/autocomplete-for-node-scripts.md"
+                                },
+                                {
+                                    "title": "Building Visual Shortcuts with Fig",
+                                    "path": "autocomplete/advancedGuides/visual-shortcuts.md"
+                                },
+                                {
+                                    "title": "Using Different Generator Types",
+                                    "path": "autocomplete/advancedGuides/using-different-generator-types.md"
+                                }
+
+                            ]
+                        },
+                        {
                             "title": "API",
                             "path": "autocomplete/api.md"
+                        },
+                        {
+                            "title": "Autocomplete for Node Scripts",
+                            "path": "autocomplete/scripting.md"
                         },
                         {
                             "title": "Reference",
