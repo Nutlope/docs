@@ -80,6 +80,10 @@
                             "path": "autocomplete/api.md"
                         },
                         {
+                            "title": "Autocomplete for Node Scripts",
+                            "path": "autocomplete/scripting.md"
+                        },
+                        {
                             "title": "Reference",
                             "path": "reference",
                             "routes": [
