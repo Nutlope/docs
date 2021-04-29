@@ -2,7 +2,7 @@
 
 You can build visual shortcuts with Fig autocomplete to access commonly used commands quickly. It looks like this:
 
-[/docAssets/autocomplete/visual-shortcuts/menu.png]
+![](/docAssets/autocomplete/visual-shortcuts/menu.png)
 
 Let's build a spec to add a few shortcuts that would level up the Fig development workflow. We want to activate our shortcut menu when we enter `+` into the terminal.
 
@@ -11,7 +11,7 @@ In your local autocomplete/dev folder, create a new file called `+.ts`. This sig
 ```ts
 export const completionSpec: Fig.Spec = {
   name: "+",
-  description: "Fig shortucts",
+  description: "Fig shortcuts",
   subcommands: [
     {
       icon: "💻",
@@ -54,6 +54,6 @@ export const completionSpec: Fig.Spec = {
 
 ```
 
-The `insertValue` property is used to insert custom commands into the terminal. Note that each `insertValue` contains two `\b` characters. These are backspace characters that remove the `+ ` at the beginning, so what's entered into the terminal is exactly the content of the `insertValue` property.
+The `insertValue` property is used to insert custom commands into the terminal. Note that each `insertValue` contains two `\b` characters. These are backspace characters that remove the `+ `  at the beginning, so what's entered into the terminal is exactly the content of the `insertValue` property.
 
 Our spec includes a number of convenience methods to make navigating the Fig developer lifecycle easier. The first subcommand inserts a `cd` command with a predefined path into the terminal when it is hit. Other use cases could be setting up shortcuts for deployment, or getting to the right Github pages right from your terminal.
