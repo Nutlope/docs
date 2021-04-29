@@ -22,7 +22,7 @@ Fig takes the user's input, maps it to your completion spec, then uses the compl
 
 You will almost never make Suggestion Objects. Instead, you will make a completion spec of [Subcommand](#subcommand-object), [Option](#option-object), and [Arg Objects](#arg-object). Fig will then use these objects to generate Suggestion Objects.
 
-<!-- START-ID: BaseSuggestion -->
+<!-- START-ID: Suggestion -->
 | Property Name | Type | Required | Description |
 |---|---|---|---
 | displayName | string | ☐ |  The string that is displayed in the UI for a given suggestion. This Overrides the name property.    For the npm CLI we have a subcommand called `install`. If we wanted  to display some custom text like `Install an NPM package 📦` we would set  `name: "install"` and `displayName: "Install an NPM package 📦"` |  |
@@ -32,7 +32,7 @@ You will almost never make Suggestion Objects. Instead, you will make a completi
 | isDangerous | boolean | ☐ |  Specifies whether the suggestion is "dangerous". If so, Fig will not enable  its "insert and run" functionality (when Fig has the red insert icon).  This will make it harder for a user to accidentally run a dangerous command.    This is used in specs like rm and trash. |  |
 | priority | number | ☐ |  The priority for a given suggestion determines its ranking in the Fig popup. A higher ranked priority will be listed first. The min priority is 0. The max priority is 100. The default priority is 50.  If a given suggestion has a priority between 50 and 75 (inluding the default 50) AND has been selected by the user before, the prioritiy will be replaced with 75 + the timestamp of when that suggestion was selected as a decimal.  If a given suggestion has a priority outside of 50-75 AND has been selected by the user before, the prioritiy will be increased by the timestamp of when that suggestion was selected as a decimal.     If you want your suggestions to always be at the top order regardless of whether they have been selected before or not, rank them 76 or above  If you want your suggestions to always be at the bottom regardless of whether they have been selected before or not, rank them 49 or below |  |
 | hidden | boolean | ☐ |  Specifies whether a suggestion should be hidden from results. Fig will only show it if the user types the exact same thing as the name    The "-" suggestion is hidden in the `cd` spec. You will only see it if you type cd - |  |
-<!-- END-ID: BaseSuggestion -->
+<!-- END-ID: Suggestion -->
 
 ## Subcommand Object
 
