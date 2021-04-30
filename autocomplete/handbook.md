@@ -75,11 +75,12 @@ As described above, Fig's tokenizer handles all of the annoying argument parsing
  
  ### Things Fig completion spec can handle but it's not optimal
  * Different argument paths:
-    * eg kubectl
+    * eg in `kubectl` you can often input TYPE/NAME or TYPE NAME. Fig has no way of distinguishing which "path" the user has chosen. Therefore you must assume the user could input the max number of arguments for any given path and make the 2nd or great argument optional
+      * `args: [{name: "TYPE | TYPE/NAME"}, {name: "NAME", isOptional: true}]`
  
  ### Things Fig's completion spec currently does not handle
  * Mutually exclusive options e.g. in a man page you might see `[-p | -G | -m]`. 
-   * For the moment, just don't include this
+   * For the moment, just don't include this. 
 
 
 
@@ -88,8 +89,9 @@ As described above, Fig's tokenizer handles all of the annoying argument parsing
 * Not including `isOptional` when an argument is optional
 * Including a subcommand's argument's inside an option's arguments (keep them separate, Fig will handle the logic)
 * Adding extra information to a subcommand/option `name` prop that Fig has already parsed out (e.g. `=`, `[]` or `<>` should NOT go in `name`)
+  * ❌ `{ name: "--flag=parameter" }`
+  * ✅ `{ name: "--flag", args: {name: parameter" } }`
  
-
 
 
 
