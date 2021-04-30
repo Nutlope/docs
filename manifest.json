@@ -26,8 +26,8 @@
                             "path": "autocomplete/introduction.md"
                         },
                         {
-                            "title": "Completion Spec Rules",
-                            "path": "autocomplete/rules.md"
+                            "title": "Autocomplete Handbook",
+                            "path": "autocomplete/handbook.md"
                         },
                         {
                             "title": "Getting Started Guides",
