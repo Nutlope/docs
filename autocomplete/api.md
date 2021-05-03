@@ -45,7 +45,7 @@ Subcommand Objects are recursive by nature.
 <!-- START-ID: Subcommand -->
 | Property Name | Type | Required | Description |
 |---|---|---|---
-| name | string | ☑ |  The exact name of the subcommand. It is important to get this right for parsing purposes.    For npm, the subcommand is `npm install` would have "name: install" (no extra spaces or characters, exactly like this) |  |
+| name | string  | ☑ |  The exact name of the subcommand. It is important to get this right for parsing purposes.    For npm, the subcommand is `npm install` would have "name: install" (no extra spaces or characters, exactly like this) |  |
 | subcommands | Subcommand[] | ☐ |  A list of subcommands for this spec.  Subcommands can be nested within subcommands. |  |
 | options | <a href="#option-object">Option[]</a> | ☐ |  A list of option objects for this subcommand. |  |
 | args | SingleOrArray<Arg> | ☐ |  An array of args or a single arg.   **Important**  If a subcommand takes an argument, please at least include an empty Arg Object  (e.g. `{}`). If you don't, Fig will assume the subcommand does not take an argument and we will present the wrong suggestions.    git push takes two arguments. The most basic representation of this is  `args: [{}, {}]` |  |
