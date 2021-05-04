@@ -26,8 +26,27 @@
                             "path": "autocomplete/introduction.md"
                         },
                         {
-                            "title": "Autocomplete Handbook",
-                            "path": "autocomplete/handbook.md"
+                            "title": "handbook",
+                            "path": "handbook",
+                            "routes": [
+                                {
+                                    "title": "Completion Spec Rules",
+                                    "path": "autocomplete/handbook/completion-spec-rules.md"
+                                },
+                                {
+                                    "title": "Tokenizer",
+                                    "path": "autocomplete/handbook/tokenizer.md"
+                                },
+                                {
+                                    "title": "Customizing Suggestions",
+                                    "path": "autocomplete/handbook/customizing-suggestions.md"
+                                },
+                                {
+                                    "title": "Argument Object",
+                                    "show": false,
+                                    "path": "autocomplete/handbook/argument-object.md"
+                                }
+                            ]
                         },
                         {
                             "title": "Getting Started Guides",
