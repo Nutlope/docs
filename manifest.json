@@ -26,7 +26,7 @@
                             "path": "autocomplete/introduction.md"
                         },
                         {
-                            "title": "handbook",
+                            "title": "Handbook",
                             "path": "handbook",
                             "routes": [
                                 {
