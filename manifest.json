@@ -95,10 +95,6 @@
                             ]
                         },
                         {
-                            "title": "Video Tutorials",
-                            "path": "autocomplete/videos.md"
-                        },
-                        {
                             "title": "API",
                             "path": "autocomplete/api.md"
                         },
