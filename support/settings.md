@@ -59,6 +59,11 @@ All Fig settings are included below.
 
 > A flag that determines whether Fig will present suggestions to immediately run `git` aliases.
 
+
+**autocomplete.immediatelyExecuteAfterSpace** `[bool]`
+
+> A flag that determines whether Fig will add the immediate insert suggestion to the top of the suggestions after a user hits space.
+
 **autocomplete.disableForCommands** `[array]`
 
 > Pass in a JSON array of commands Fig should not autocomplete on.
